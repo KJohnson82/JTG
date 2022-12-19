@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 class TextFormatter extends TextInputFormatter {
 
   final String sample;
   final String separator;
+
 
   TextFormatter({
     required this.sample,

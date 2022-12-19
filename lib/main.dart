@@ -1,6 +1,8 @@
 
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
+import 'Converters/gregDate.dart';
+import 'Converters/julianDate.dart';
 import 'UI/appBody.dart';
 
 void main() {
@@ -8,15 +10,15 @@ void main() {
     const JTG(),
   );
 
-  // doWhenWindowReady(() {
-  //   const initialSize = Size(450, 300);
-  //   appWindow.title = "J2G Converter";
-  //   appWindow.minSize = initialSize;
-  //   appWindow.maxSize = initialSize;
-  //   appWindow.size = initialSize;
-  //   appWindow.alignment = Alignment.center;
-  //   appWindow.show();
-  // });
+  doWhenWindowReady(() {
+    const initialSize = Size(450, 300);
+    appWindow.title = "J2G Converter";
+    appWindow.minSize = initialSize;
+    appWindow.maxSize = initialSize;
+    appWindow.size = initialSize;
+    appWindow.alignment = Alignment.center;
+    appWindow.show();
+  });
 }
 
 class JTG extends StatefulWidget {
@@ -36,3 +38,4 @@ class _JTGState extends State<JTG> {
     );
   }
 }
+

@@ -13,7 +13,7 @@ import 'package:jtg/UI/inputBox.dart';
 //
 //
 
-var inputDate = DateFormat('MM/dd/yyyy').format(DateTime.now()).toString();
+//var inputDate = DateFormat('MM/dd/yyyy').format(DateTime.now()).toString();
 
 class AppBody extends StatelessWidget {
   const AppBody({Key? key}) : super(key: key);
@@ -86,9 +86,15 @@ class AppBody extends StatelessWidget {
                     // DATE INPUT BOX AND CONVERT BUTTON
                     //
                     Row(
-                      children:  const [
-                        InputBox(),
-                        ConvertButton(),
+                      children:  [
+                        const Padding(
+                          padding: EdgeInsets.fromLTRB(1, 130, 5, 20),
+                          child: InputBox(),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(5, 139, 20, 20),
+                          child: ConvertButton(),
+                        ),
 
                       ],
                     )
@@ -150,35 +156,4 @@ class WindowButtons extends StatelessWidget {
   }
 }
 
-// Convert Button
-
-class ConvertButton extends StatelessWidget {
-  const ConvertButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        // print(Text(dateController.text));
-        // content: Text(dateController.text),
-
-      },
-      child: const Text(
-        'CONVERT',
-
-        // style: GoogleFonts.oswald(
-        //   color: const Color(0xFFF9F5E0),
-        //   fontSize: 16,
-        //   letterSpacing: 0.75,
-        // ),
-      ),
-      style: ElevatedButton.styleFrom(
-        minimumSize: const Size(100, 45),
-        maximumSize: const Size(100, 45),
-        primary: const Color(0xFF26A69A),
-        fixedSize: const Size(100, 45),
-      ),
-    );
-  }
-}
 

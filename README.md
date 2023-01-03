@@ -1,4 +1,4 @@
-# J2G Converter 
+# J2G Converter
 
 JTG
 

@@ -1,8 +1,8 @@
 import 'dart:core';
-import 'dart:io';
-//import 'package:j2g/AppBody.dart';
-import 'leapYear.dart';
 
+import 'LeapYear.dart';
+
+// Returns date in JDE Julian format like 123001
 class JulianDate {
   julianDate(String inputDate) {
 /*

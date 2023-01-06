@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jtg/Converters/ConvertAnswer.dart';
+import 'package:jtg/main.dart';
 
 import 'DisplayBox.dart';
 import 'InputBox.dart';
@@ -14,7 +16,7 @@ class AppBody extends StatefulWidget {
 }
 
 class _AppBodyState extends State<AppBody> {
-  final inputDate = dateController.value;
+  final inputDate = dateController.value.text;
 
   @override
   Widget build(BuildContext context) {
@@ -88,9 +90,13 @@ class _AppBodyState extends State<AppBody> {
                         Padding(
                           padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                           child: ElevatedButton(
-                              onPressed: (
-
-                                  ) {},
+                              onPressed: () {
+                                setState(() {
+                                  String answer = ConvertAnswer().inputType(inputDate);
+                                  print(answer);
+                                  displayDate(answer);
+                                });
+                              },
                               child: Text(
                                 'CONVERT',
                                 //style: Theme.of(context).textTheme.button,

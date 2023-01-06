@@ -4,19 +4,25 @@ import 'package:intl/intl.dart';
 
 // Returns Date in format like 01/01/2023
 class GregDate {
-  gregDate(var inputDate) {
+
+  dateSplit(var inputDate) {
+    inputDate = inputDate.toString();
     // Break down JDE date into individual pieces
     var currentYear = int.parse(DateFormat('yy').format(DateTime.now()));
+    //var splitYear = inputDate.substring(1, 3);
     var splitYear = int.parse(inputDate.substring(1, 3));
+    //var splitDay = inputDate.substring(3, inputDate.length);
     var splitDay = int.parse(inputDate.substring(3, inputDate.length));
 
 // Uses the current year to determine if our 2 digit date needs a 19 or 20 in the front
     convYear() {
       if (splitYear <= currentYear) {
-        var year = '20' + splitYear.toString();
+        //var year = '20' + splitYear.toString();
+        var year = '20${splitYear.toString()}';
         return int.parse(year);
       } else {
-        var year = '19' + splitYear.toString();
+        //var year = '19' + splitYear.toString();
+        var year = '19${splitYear.toString()}';
         return int.parse(year);
       }
     }
@@ -36,6 +42,13 @@ class GregDate {
       return result;
     }
 
+    print(convDate());
     return convDate();
+
   }
+  //dateSplit(inputDate);
 }
+
+
+
+//GregDate gregDate = GregDate();

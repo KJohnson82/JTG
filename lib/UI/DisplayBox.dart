@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jtg/Converters/ConvertAnswer.dart';
 import '../Converters/ToDate.dart';
 import '../main.dart';
 
-var inputDate = ToDate().toDate();
+//var inputDate = ToDate().toDate();
 
 // var today = ToDate().toDate();
 // var Greg = GregDate().gregDate(Julian);
@@ -37,7 +38,8 @@ class DisplayBox extends StatelessWidget {
       ),
       alignment: Alignment.center,
       child: Text(
-        displayDate(inputDate),
+        displayDate(ConvertAnswer().inputType(convertAnswer)),
+        //displayDate(inputDate!),
         style: GoogleFonts.robotoMono(
             textStyle: TextStyle(
           fontSize: 28,

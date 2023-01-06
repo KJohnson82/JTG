@@ -1,5 +1,7 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:jtg/Converters/ConvertAnswer.dart';
 
 import 'Converters/GregDate.dart';
 import 'Converters/JulianDate.dart';
@@ -8,10 +10,12 @@ import 'UI/AppBody.dart';
 import 'UI/DisplayBox.dart';
 import 'UI/InputBox.dart';
 
-var inputDate;
+String? inputDate;
 
-displayDate(String inputDate) =>
-    '${GregDate().gregDate(JulianDate().julianDate(inputDate))} = ${JulianDate().julianDate(inputDate)}';
+//displayDate(String inputDate)  => '${GregDate().dateSplit(JulianDate().julianDate(inputDate))} = ${JulianDate().julianDate(inputDate)}';
+displayDate(String inputDate) => ConvertAnswer().inputType(convertAnswer);
+
+//GetIt getIt = GetIt.instance;
 
 void main() {
   runApp(
@@ -40,11 +44,19 @@ class JTG extends StatefulWidget {
 }
 
 class _JTGState extends State<JTG> {
-  // void _updateDisplay() {
-  //   setState(() {
-  //     ToDate().displayDate(inputDate);
-  //   });
-  // }
+
+  @override
+  void initState() {
+    displayDate(ToDate().toDate());
+    super.initState();
+  }
+
+
+  @override
+  void dispose() {
+    dateController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

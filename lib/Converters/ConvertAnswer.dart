@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../UI/InputBox.dart';
+import '../main.dart';
 import 'GregDate.dart';
 import 'JulianDate.dart';
 import 'LeapYear.dart';
@@ -9,7 +10,7 @@ import 'ToDate.dart';
 
 
 
-String? inputDate;
+//String? inputDate;
 var today = ToDate().toDate();
 // var Greg = GregDate().gregDate(Julian);
 // var Julian = JulianDate().julianDate(inputDate);
@@ -17,9 +18,18 @@ String? answer;
 String? result;
 var gregMatch = RegExp("[0-9]{6}");
 var julianMatch = RegExp("[0-9, /]+");
+String inputDate = inputDate;
+
+Julian(inputDate) {
+  JulianDate().julianDate(inputDate);
+}
+
+Greg(inputDate) {
+  GregDate().dateSplit(inputDate);
+}
 
 
-var convertAnswer = dateController.text;
+var convertAnswer = inputDate;
 // displayDate(String inputDate) =>
 //     '${GregDate().gregDate(JulianDate().julianDate(inputDate))} = ${JulianDate().julianDate(inputDate)}';
 
@@ -29,10 +39,13 @@ class ConvertAnswer {
 
   inputType(convertAnswer) {
 
+    print("convertAnswer ${convertAnswer}");
+    print("Func Start");
+
     if (convertAnswer == null) {
       answer = "Invalid Entry ";
       print('Not Null');
-      print(answer);
+      //print(answer);
       //Put logic here to update display
       //return answer;
     }
@@ -74,7 +87,7 @@ class ConvertAnswer {
           return result;
         }
 
-        print(convDate());
+        print("Greg date exit $result");
         //return convDate();
 
       }
@@ -143,16 +156,21 @@ and returns to Appbody
         return result;
         // return sb.toString();
       }
+      print("Julian Date Exit  $result");
       //result = julianDate(convertAnswer);
       answer = "$convertAnswer = $result";
       //Put logic here to update display
       //return answer;
     }
     else {
-      answer = "Invalid Entry ";
-      print('Else');
-      //Put logic here to update display
+      print("$convertAnswer - else statement");
+      answer = "$today = ${JulianDate().julianDate(today)}";
     }
+    // else {
+    //   answer = "Invalid Entry ";
+    //   print('Else');
+    //   //Put logic here to update display
+    // }
 
     return answer;
   }

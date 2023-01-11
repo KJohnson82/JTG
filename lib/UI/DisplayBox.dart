@@ -38,7 +38,8 @@ class DisplayBox extends StatelessWidget {
       ),
       alignment: Alignment.center,
       child: Text(
-        displayDate(ConvertAnswer().inputType(convertAnswer)),
+        ConvertAnswer().inputType(convertAnswer).toString(),
+        //displayDate(ConvertAnswer().inputType(convertAnswer)),
         //displayDate(inputDate!),
         style: GoogleFonts.robotoMono(
             textStyle: TextStyle(

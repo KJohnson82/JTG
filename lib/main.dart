@@ -10,8 +10,8 @@ import 'UI/AppBody.dart';
 import 'UI/DisplayBox.dart';
 import 'UI/InputBox.dart';
 
-String? inputDate;
-
+//String? inputDate;
+var inputDate = dateController.value.text;
 //displayDate(String inputDate)  => '${GregDate().dateSplit(JulianDate().julianDate(inputDate))} = ${JulianDate().julianDate(inputDate)}';
 displayDate(String inputDate) => ConvertAnswer().inputType(convertAnswer);
 
@@ -47,16 +47,19 @@ class _JTGState extends State<JTG> {
 
   @override
   void initState() {
-    displayDate(ToDate().toDate());
+    var today = ConvertAnswer().inputType(ToDate().toDate());
+    displayDate(today);
+    print("Initial Data $today");
+    //displayDate(ToDate().toDate());
     super.initState();
   }
 
 
-  @override
-  void dispose() {
-    dateController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   dateController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {

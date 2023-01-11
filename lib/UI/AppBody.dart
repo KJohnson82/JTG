@@ -16,7 +16,7 @@ class AppBody extends StatefulWidget {
 }
 
 class _AppBodyState extends State<AppBody> {
-  final inputDate = dateController.value.text;
+  // final inputDate = dateController.value.text;
 
   @override
   Widget build(BuildContext context) {
@@ -91,9 +91,11 @@ class _AppBodyState extends State<AppBody> {
                           padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                           child: ElevatedButton(
                               onPressed: () {
+
                                 setState(() {
-                                  String answer = ConvertAnswer().inputType(inputDate);
-                                  print(answer);
+                                  print(inputDate);
+                                  String answer = ConvertAnswer().inputType(convertAnswer);
+                                  print("$answer  Button");
                                   displayDate(answer);
                                 });
                               },

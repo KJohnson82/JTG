@@ -1,6 +1,5 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:jtg/Converters/ConvertAnswer.dart';
 
 import 'Converters/GregDate.dart';
@@ -11,10 +10,14 @@ import 'UI/DisplayBox.dart';
 import 'UI/InputBox.dart';
 
 //String? inputDate;
-var inputDate = dateController.value.text;
+TextEditingController dateController = TextEditingController();
+//String? inputDate = dateController.text;
 //displayDate(String inputDate)  => '${GregDate().dateSplit(JulianDate().julianDate(inputDate))} = ${JulianDate().julianDate(inputDate)}';
-displayDate(String inputDate) => ConvertAnswer().inputType(convertAnswer);
+//displayDate(String inputDate) => ConvertAnswer().inputType(convertAnswer);
 
+
+var today = ConvertAnswer().inputType(ToDate().toDate());
+String? answer = "$today";
 //GetIt getIt = GetIt.instance;
 
 void main() {
@@ -47,19 +50,15 @@ class _JTGState extends State<JTG> {
 
   @override
   void initState() {
-    var today = ConvertAnswer().inputType(ToDate().toDate());
-    displayDate(today);
-    print("Initial Data $today");
-    //displayDate(ToDate().toDate());
     super.initState();
   }
 
 
-  // @override
-  // void dispose() {
-  //   dateController.dispose();
-  //   super.dispose();
-  // }
+  @override
+  void dispose() {
+    dateController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

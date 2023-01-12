@@ -14,22 +14,22 @@ import 'ToDate.dart';
 var today = ToDate().toDate();
 // var Greg = GregDate().gregDate(Julian);
 // var Julian = JulianDate().julianDate(inputDate);
-String? answer;
+//String? answer;
 String? result;
 var gregMatch = RegExp("[0-9]{6}");
 var julianMatch = RegExp("[0-9, /]+");
-String inputDate = inputDate;
+//String inputDate = inputDate;
 
-Julian(inputDate) {
-  JulianDate().julianDate(inputDate);
+Julian(inputDate) async {
+  await JulianDate().julianDate(inputDate);
 }
 
-Greg(inputDate) {
-  GregDate().dateSplit(inputDate);
+Greg(inputDate) async {
+  await GregDate().dateSplit(inputDate);
 }
 
 
-var convertAnswer = inputDate;
+var convertAnswer = dateController.text;
 // displayDate(String inputDate) =>
 //     '${GregDate().gregDate(JulianDate().julianDate(inputDate))} = ${JulianDate().julianDate(inputDate)}';
 
@@ -39,8 +39,8 @@ class ConvertAnswer {
 
   inputType(convertAnswer) {
 
-    print("convertAnswer ${convertAnswer}");
-    print("Func Start");
+    //print("convertAnswer ${convertAnswer}");
+    print("Func Start - ConvertAnswer Line 43");
 
     if (convertAnswer == null) {
       answer = "Invalid Entry ";
@@ -49,7 +49,7 @@ class ConvertAnswer {
       //Put logic here to update display
       //return answer;
     }
-    else if (gregMatch.stringMatch(convertAnswer) == true) {
+    else if (gregMatch.hasMatch(convertAnswer) == true) {
       dateSplit(var inputDate) {
         inputDate = inputDate.toString();
         // Break down JDE date into individual pieces
@@ -82,21 +82,24 @@ class ConvertAnswer {
 
           var dayOfYearDate = DateTime.fromMillisecondsSinceEpoch(
               (millisecondsSinceEpoch + millisDayOfYear));
-          var result = DateFormat('MM/dd/${convYear()}').format(dayOfYearDate);
+          var result = dayOfYearDate;
+          //var result = DateFormat('MM/dd/${convYear()}').format(dayOfYearDate);
 
           return result;
         }
+        result = DateFormat('MM/dd/${convYear()}').format(convDate());
 
         print("Greg date exit $result");
         //return convDate();
 
       }
+      dateSplit(convertAnswer);
       //result = dateSplit(convertAnswer);
       answer = "$result = $convertAnswer";
       //Put logic here to update display
       //return answer;
     }
-    else if (julianMatch.stringMatch(convertAnswer) == true) {
+    else if (julianMatch.hasMatch(convertAnswer)) {
       julianDate(String inputDate) {
 /*
 Hands off all calculations to other methods and just does the string interpolation
@@ -156,16 +159,17 @@ and returns to Appbody
         return result;
         // return sb.toString();
       }
+      julianDate(convertAnswer);
       print("Julian Date Exit  $result");
       //result = julianDate(convertAnswer);
       answer = "$convertAnswer = $result";
       //Put logic here to update display
       //return answer;
     }
-    else {
-      print("$convertAnswer - else statement");
-      answer = "$today = ${JulianDate().julianDate(today)}";
-    }
+    // else {
+    //   print("$convertAnswer - ConvertAnswer - else statement Line 166");
+    //   answer = "$today = ${JulianDate().julianDate(today)}";
+    // }
     // else {
     //   answer = "Invalid Entry ";
     //   print('Else');

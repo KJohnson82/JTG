@@ -20,13 +20,13 @@ var gregMatch = RegExp("[0-9]{6}");
 var julianMatch = RegExp("[0-9, /]+");
 //String inputDate = inputDate;
 
-Julian(inputDate) async {
-  await JulianDate().julianDate(inputDate);
-}
-
-Greg(inputDate) async {
-  await GregDate().dateSplit(inputDate);
-}
+// Julian(inputDate) async {
+//   await JulianDate().julianDate(inputDate);
+// }
+//
+// Greg(inputDate) async {
+//   await GregDate().dateSplit(inputDate);
+// }
 
 
 var convertAnswer = dateController.text;
@@ -185,6 +185,29 @@ and returns to Appbody
   }
 }
 
+class LeapYear {
+  leapYear(int year) {
+    if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0) == true) {
+      return true;
+    }else {
+      return false;
+    }
+    // bool isLeapYear(int stripYear) =>
+    //     (stripYear % 4 == 0 && (stripYear % 100 != 0 || stripYear % 400 == 0) == true);
+    // print(isLeapYear);
+    // return isLeapYear;
+  }
+
+}
+
+class ToDate {
+  String toDate() {
+    var result = DateFormat('MM/dd/yyyy').format(DateTime.now()).toString();
+    return result;
+  }
+// displayDate(String inputDate) =>
+//     '${GregDate().gregDate(JulianDate().julianDate(inputDate))} = ${JulianDate().julianDate(inputDate)}';
+}
 
 // public String inputType(String convertAnswer) {
 //   convertAnswer = txt_enter.getText();

@@ -52,6 +52,20 @@ class _InputBoxState extends State<InputBox> {
                     width: 3, color: Colors.blueGrey, style: BorderStyle.solid),
                 borderRadius: BorderRadius.circular(6),
               )),
+          onSubmitted: (controller) {
+            answer = ConvertAnswer()
+                .inputType(dateController.text);
+            //"$answer" = answer;
+            print("$answer -AppBody Button LINE 96");
+            //answer.toString();
+            answerDate.value = answer.toString();
+            //setState(() => Text(ConvertAnswer().inputType(dateController.text)));
+            //     {
+            //   print("${answer} - AppBody SetState LINE 99");
+            //   //displayDate(answer);
+            // });
+            dateController.clear();
+          },
         ),
       ),
     );

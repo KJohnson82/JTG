@@ -59,6 +59,7 @@ class _AppBodyState extends State<AppBody> {
                         child: Stack(
                           alignment: Alignment.centerLeft,
                           children: [
+                            MoveWindow(),
                             const Text(
                               'JTG',
                               textAlign: TextAlign.center,
@@ -70,9 +71,9 @@ class _AppBodyState extends State<AppBody> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                MoveWindow(),
-                                const WindowButtons(),
+                              children: const [
+                                //MoveWindow(),
+                                WindowButtons(),
                               ],
                             ),
                           ],

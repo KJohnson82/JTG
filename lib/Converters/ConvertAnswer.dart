@@ -49,7 +49,7 @@ class ConvertAnswer {
       //Put logic here to update display
       //return answer;
     }
-    else if (gregMatch.hasMatch(convertAnswer) == true) {
+    else if (gregMatch.hasMatch(convertAnswer)) {
       dateSplit(var inputDate) {
         inputDate = inputDate.toString();
         // Break down JDE date into individual pieces
@@ -58,6 +58,7 @@ class ConvertAnswer {
         var splitYear = int.parse(inputDate.substring(1, 3));
         //var splitDay = inputDate.substring(3, inputDate.length);
         var splitDay = int.parse(inputDate.substring(3, inputDate.length));
+        var lastDecade = int.parse(inputDate.substring(0, 2));
 
 // Uses the current year to determine if our 2 digit date needs a 19 or 20 in the front
         convYear() {
@@ -65,7 +66,11 @@ class ConvertAnswer {
             //var year = '20' + splitYear.toString();
             var year = '20${splitYear.toString()}';
             return int.parse(year);
-          } else {
+          } else if (splitYear >= currentYear && lastDecade.toString() != "19") {
+            var year = '20${splitYear.toString()}';
+            return int.parse(year);
+          }
+          else {
             //var year = '19' + splitYear.toString();
             var year = '19${splitYear.toString()}';
             return int.parse(year);

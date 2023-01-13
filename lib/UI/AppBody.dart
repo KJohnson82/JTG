@@ -8,6 +8,8 @@ import 'DisplayBox.dart';
 import 'InputBox.dart';
 import 'TitleBarButtons.dart';
 
+// ValueNotifier<String?> answerDate = ValueNotifier(answer);
+
 class AppBody extends StatefulWidget {
   const AppBody({Key? key}) : super(key: key);
 
@@ -91,17 +93,18 @@ class _AppBodyState extends State<AppBody> {
                           padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                           child: ElevatedButton(
                               onPressed: () {
-
-                                answer = ConvertAnswer().inputType(dateController.text);
+                                answer = ConvertAnswer()
+                                    .inputType(dateController.text);
                                 //"$answer" = answer;
                                 print("$answer -AppBody Button LINE 96");
-                                answer.toString();
-                                setState(() {answer;});
+                                //answer.toString();
+                                answerDate.value = answer.toString();
                                 //setState(() => Text(ConvertAnswer().inputType(dateController.text)));
                                 //     {
                                 //   print("${answer} - AppBody SetState LINE 99");
                                 //   //displayDate(answer);
                                 // });
+                                dateController.clear();
                               },
                               child: Text(
                                 'CONVERT',

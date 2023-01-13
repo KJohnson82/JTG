@@ -18,6 +18,7 @@ TextEditingController dateController = TextEditingController();
 
 var today = ConvertAnswer().inputType(ToDate().toDate());
 String? answer = "$today";
+ValueNotifier<String> answerDate = ValueNotifier(answer.toString());
 //GetIt getIt = GetIt.instance;
 
 void main() {

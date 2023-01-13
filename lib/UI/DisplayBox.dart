@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jtg/Converters/ConvertAnswer.dart';
+import 'package:jtg/UI/AppBody.dart';
 import '../Converters/ToDate.dart';
 import '../main.dart';
 
@@ -16,7 +17,6 @@ import '../main.dart';
 // // displayDate(String inputDate) =>
 // //     '${GregDate().gregDate(JulianDate().julianDate(inputDate))} = ${JulianDate().julianDate(inputDate)}';
 var output = "$answer";
-
 
 class DisplayBox extends StatefulWidget {
   const DisplayBox({Key? key}) : super(key: key);
@@ -44,32 +44,52 @@ class _DisplayBoxState extends State<DisplayBox> {
         borderRadius: const BorderRadius.all(Radius.circular(10)),
       ),
       alignment: Alignment.center,
-      child: Builder(
-        builder: (context) {
+      child: ValueListenableBuilder<String?>(
+        builder: (BuildContext context, String? value, Widget? child) {
           return Text(
-            //output.toString(),
-            answer = "$answer",
-            //"${ConvertAnswer().inputType(dateController.text)}",
-            //ConvertAnswer().inputType(convertAnswer).toString(),
-            //displayDate(answer!),
-            //displayDate(inputDate!),
+            "$answer",
             style: GoogleFonts.robotoMono(
                 textStyle: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.w500,
-              letterSpacing: .5,
-              color: Colors.black45,
-              shadows: [
-                Shadow(
-                  color: Colors.grey.shade400,
-                  offset: const Offset(1, 0.5),
-                  blurRadius: 1,
-                ),
-              ],
-            )),
+                  fontSize: 28,
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: .5,
+                  color: Colors.black45,
+                  shadows: [
+                    Shadow(
+                      color: Colors.grey.shade400,
+                      offset: const Offset(1, 0.5),
+                      blurRadius: 1,
+                    ),
+                  ],
+                )),
           );
-        }
+        },
+        valueListenable: answerDate,
       ),
+      // child: Builder(builder: (context) {
+      //   return Text(
+      //     //output.toString(),
+      //     answer = "$answer",
+      //     //"${ConvertAnswer().inputType(dateController.text)}",
+      //     //ConvertAnswer().inputType(convertAnswer).toString(),
+      //     //displayDate(answer!),
+      //     //displayDate(inputDate!),
+      //     style: GoogleFonts.robotoMono(
+      //         textStyle: TextStyle(
+      //       fontSize: 28,
+      //       fontWeight: FontWeight.w500,
+      //       letterSpacing: .5,
+      //       color: Colors.black45,
+      //       shadows: [
+      //         Shadow(
+      //           color: Colors.grey.shade400,
+      //           offset: const Offset(1, 0.5),
+      //           blurRadius: 1,
+      //         ),
+      //       ],
+      //     )),
+      //   );
+      // }),
     );
   }
 }

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 project(jtg LANGUAGES CXX)
 
-set(BINARY_NAME "jtg")
+set(BINARY_NAME "J2G")
 
 cmake_policy(SET CMP0063 NEW)
 

@@ -29,7 +29,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
   FlutterWindow window(project);
   Win32Window::Point origin(10, 10);
   Win32Window::Size size(450, 275);
-  if (!window.CreateAndShow(L"jtg", origin, size)) {
+  if (!window.CreateAndShow(L"J2G", origin, size)) {
     return EXIT_FAILURE;
   }
   window.SetQuitOnClose(true);

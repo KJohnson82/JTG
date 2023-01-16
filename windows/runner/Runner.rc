@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "jtg" "\0"
+            VALUE "CompanyName", "com.McElroy" "\0"
+            VALUE "FileDescription", "J2G" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "jtg" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "jtg.exe" "\0"
-            VALUE "ProductName", "jtg" "\0"
+            VALUE "InternalName", "J2G" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2022 com.McElroy. All rights reserved." "\0"
+            VALUE "OriginalFilename", "J2G.exe" "\0"
+            VALUE "ProductName", "J2G Converter" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

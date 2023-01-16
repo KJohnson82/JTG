@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jtg/Converters/ConvertAnswer.dart';
 import 'package:jtg/main.dart';
@@ -7,8 +7,6 @@ import 'package:jtg/main.dart';
 import 'DisplayBox.dart';
 import 'InputBox.dart';
 import 'TitleBarButtons.dart';
-
-// ValueNotifier<String?> answerDate = ValueNotifier(answer);
 
 class AppBody extends StatefulWidget {
   const AppBody({Key? key}) : super(key: key);
@@ -25,25 +23,23 @@ class _AppBodyState extends State<AppBody> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.pinkAccent,
+        backgroundColor: Colors.teal,
         body: SafeArea(
-            // maintainBottomViewPadding: true,
-            // bottom: true,
             child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          // mainAxisSize: MainAxisSize.max,
-          //verticalDirection: VerticalDirection.up,
           children: [
             Expanded(
               child: Container(
                 alignment: Alignment.center,
                 height: 262,
-                padding: const EdgeInsets.fromLTRB(1, 1, 1, 1),
+                padding: const EdgeInsets.fromLTRB(0, 1, 0, 1),
                 margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                 decoration: BoxDecoration(
                   color: Theme.of(context).backgroundColor,
                   gradient: const LinearGradient(
-                    colors: [Colors.blue, Colors.blueGrey],
+                    colors: [
+                      Color.fromRGBO(133, 251, 244, 100),
+                      Color.fromRGBO(1, 157, 146, 100)
+                    ],
                     stops: [0, 4],
                     begin: AlignmentDirectional(0, -1.75),
                     end: AlignmentDirectional(0, 2),
@@ -52,7 +48,7 @@ class _AppBodyState extends State<AppBody> {
                 child: Column(
                   children: [
                     Container(
-                      padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                      padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                       alignment: Alignment.center,
                       color: Theme.of(context).appBarTheme.backgroundColor,
                       child: WindowTitleBarBox(
@@ -61,11 +57,12 @@ class _AppBodyState extends State<AppBody> {
                           children: [
                             MoveWindow(),
                             const Text(
-                              'JTG',
+                              'J2G CONVERTER',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
+                                color: Color(0xFFF9F5E0),
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                             Row(
@@ -81,35 +78,35 @@ class _AppBodyState extends State<AppBody> {
                       ),
                     ),
                     const Padding(
-                      padding: EdgeInsets.fromLTRB(8, 30, 8, 20),
+                      padding: EdgeInsets.fromLTRB(8, 25, 8, 15),
                       child: DisplayBox(),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.fromLTRB(0, 5, 0, 12),
+                      child: Divider(
+                        height: 5,
+                        thickness: 2,
+                        color: Colors.teal,
+                      ),
                     ),
                     Row(
                       children: [
                         const Padding(
-                          padding: EdgeInsets.fromLTRB(25, 10, 0, 10),
+                          padding: EdgeInsets.fromLTRB(32, 10, 0, 8),
                           child: InputBox(),
                         ),
                         Padding(
                           padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                          //Converts Answer on Button Press
                           child: ElevatedButton(
                               onPressed: () {
                                 answer = ConvertAnswer()
                                     .inputType(dateController.text);
-                                //"$answer" = answer;
-                                print("$answer -AppBody Button LINE 96");
-                                //answer.toString();
                                 answerDate.value = answer.toString();
-                                //setState(() => Text(ConvertAnswer().inputType(dateController.text)));
-                                //     {
-                                //   print("${answer} - AppBody SetState LINE 99");
-                                //   //displayDate(answer);
-                                // });
                                 dateController.clear();
                               },
                               child: Text(
                                 'CONVERT',
-                                //style: Theme.of(context).textTheme.button,
                                 style: GoogleFonts.oswald(
                                   color: const Color(0xFFF9F5E0),
                                   fontSize: 18,

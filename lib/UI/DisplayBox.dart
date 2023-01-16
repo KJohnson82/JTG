@@ -1,21 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jtg/Converters/ConvertAnswer.dart';
-import 'package:jtg/UI/AppBody.dart';
-import '../Converters/ToDate.dart';
+
 import '../main.dart';
 
-//var inputDate = ToDate().toDate();
-
-// var today = ToDate().toDate();
-// var Greg = GregDate().gregDate(Julian);
-// var Julian = JulianDate().julianDate(inputDate);
-// var inputdate;
-//
-//
-//
-// // displayDate(String inputDate) =>
-// //     '${GregDate().gregDate(JulianDate().julianDate(inputDate))} = ${JulianDate().julianDate(inputDate)}';
 var output = "$answer";
 
 class DisplayBox extends StatefulWidget {
@@ -50,46 +37,22 @@ class _DisplayBoxState extends State<DisplayBox> {
             "$answer",
             style: GoogleFonts.robotoMono(
                 textStyle: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: .5,
-                  color: Colors.black45,
-                  shadows: [
-                    Shadow(
-                      color: Colors.grey.shade400,
-                      offset: const Offset(1, 0.5),
-                      blurRadius: 1,
-                    ),
-                  ],
-                )),
+              fontSize: 28,
+              fontWeight: FontWeight.w500,
+              letterSpacing: .5,
+              color: Colors.black45,
+              shadows: [
+                Shadow(
+                  color: Colors.grey.shade400,
+                  offset: const Offset(1, 0.5),
+                  blurRadius: 1,
+                ),
+              ],
+            )),
           );
         },
         valueListenable: answerDate,
       ),
-      // child: Builder(builder: (context) {
-      //   return Text(
-      //     //output.toString(),
-      //     answer = "$answer",
-      //     //"${ConvertAnswer().inputType(dateController.text)}",
-      //     //ConvertAnswer().inputType(convertAnswer).toString(),
-      //     //displayDate(answer!),
-      //     //displayDate(inputDate!),
-      //     style: GoogleFonts.robotoMono(
-      //         textStyle: TextStyle(
-      //       fontSize: 28,
-      //       fontWeight: FontWeight.w500,
-      //       letterSpacing: .5,
-      //       color: Colors.black45,
-      //       shadows: [
-      //         Shadow(
-      //           color: Colors.grey.shade400,
-      //           offset: const Offset(1, 0.5),
-      //           blurRadius: 1,
-      //         ),
-      //       ],
-      //     )),
-      //   );
-      // }),
     );
   }
 }

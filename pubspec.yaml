@@ -38,7 +38,6 @@ dependencies:
   bitsdojo_window: ^0.1.1+1
   google_fonts: ^3.0.1
   matcher: ^0.12.11
-  get_it: ^7.2.0
 
 dev_dependencies:
   flutter_test:

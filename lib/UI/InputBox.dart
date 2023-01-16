@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../Converters/ConvertAnswer.dart';
-import '../Converters/ToDate.dart';
 import '../main.dart';
 
-// var dateController = TextEditingController();
-
+//This is where you enter your date for conversion
 class InputBox extends StatefulWidget {
   const InputBox({Key? key}) : super(key: key);
 
@@ -52,28 +50,14 @@ class _InputBoxState extends State<InputBox> {
                     width: 3, color: Colors.blueGrey, style: BorderStyle.solid),
                 borderRadius: BorderRadius.circular(6),
               )),
+          //Allows you to submit date by pressing enter instead of convert button
           onSubmitted: (controller) {
-            answer = ConvertAnswer()
-                .inputType(dateController.text);
-            //"$answer" = answer;
-            print("$answer -AppBody Button LINE 96");
-            //answer.toString();
+            answer = ConvertAnswer().inputType(dateController.text);
             answerDate.value = answer.toString();
-            //setState(() => Text(ConvertAnswer().inputType(dateController.text)));
-            //     {
-            //   print("${answer} - AppBody SetState LINE 99");
-            //   //displayDate(answer);
-            // });
             dateController.clear();
           },
         ),
       ),
     );
   }
-
-  // @override
-  // void dispose() {
-  //   dateController.dispose();
-  //   super.dispose();
-  // }
 }

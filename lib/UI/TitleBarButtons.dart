@@ -3,14 +3,14 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 
 final buttonColors = WindowButtonColors(
-    normal: Colors.teal[400],
-    mouseOver: Colors.teal,
+    normal: Colors.teal,
+    mouseOver: Colors.teal[400],
     mouseDown: const Color(0xFFB71C1C),
     iconNormal: const Color(0xFFF9F5E0),
     iconMouseOver: Colors.black);
 
 final closeButtonColors = WindowButtonColors(
-    normal: Colors.teal[400],
+    normal: Colors.teal,
     mouseOver: const Color(0xFFD32F2F),
     mouseDown: const Color(0xFFB71C1C),
     iconNormal: const Color(0xFFF9F5E0),

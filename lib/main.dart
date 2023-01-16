@@ -2,35 +2,22 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:jtg/Converters/ConvertAnswer.dart';
 
-import 'Converters/GregDate.dart';
-import 'Converters/JulianDate.dart';
-import 'Converters/ToDate.dart';
 import 'UI/AppBody.dart';
-import 'UI/DisplayBox.dart';
-import 'UI/InputBox.dart';
 
-//String? inputDate;
 TextEditingController dateController = TextEditingController();
-//String? inputDate = dateController.text;
-//displayDate(String inputDate)  => '${GregDate().dateSplit(JulianDate().julianDate(inputDate))} = ${JulianDate().julianDate(inputDate)}';
-//displayDate(String inputDate) => ConvertAnswer().inputType(convertAnswer);
-
-
+//Gets todays Date
 var today = ConvertAnswer().inputType(ToDate().toDate());
 String? answer = "$today";
+//Updates the Display Box
 ValueNotifier<String> answerDate = ValueNotifier(answer.toString());
-//GetIt getIt = GetIt.instance;
 
 void main() {
   runApp(
     const JTG(),
   );
 
-  // print(ToDate().toDate());
-  // inputDate = today;
-
   doWhenWindowReady(() {
-    const initialSize = Size(450, 300);
+    const initialSize = Size(450, 260);
     appWindow.title = "J2G Converter";
     appWindow.minSize = initialSize;
     appWindow.maxSize = initialSize;
@@ -48,12 +35,10 @@ class JTG extends StatefulWidget {
 }
 
 class _JTGState extends State<JTG> {
-
   @override
   void initState() {
     super.initState();
   }
-
 
   @override
   void dispose() {
@@ -61,16 +46,17 @@ class _JTGState extends State<JTG> {
     super.dispose();
   }
 
+  //Various different Color themes, these are overriden in certain places in the code
   @override
   Widget build(BuildContext context) {
     //return  MaterialApp(home: HomePageWidget(),);
     return MaterialApp(
       theme: ThemeData(
-        primaryColor: Colors.teal[300],
-        primarySwatch: Colors.cyan,
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.teal[300],
-          foregroundColor: Colors.white,
+        primaryColor: Colors.teal,
+        primarySwatch: Colors.teal,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.teal,
+          foregroundColor: Color(0xFFF9F5E0),
         ),
         // canvasColor: Colors.white24,
         // cardColor: Colors.white24,
@@ -82,7 +68,7 @@ class _JTGState extends State<JTG> {
             style: ButtonStyle(
           alignment: Alignment.center,
           fixedSize: MaterialStateProperty.all(const Size(115, 47)),
-          backgroundColor: MaterialStateProperty.all(const Color(0xFF26A69A)),
+          backgroundColor: MaterialStateProperty.all(Colors.teal),
         )),
         textTheme: const TextTheme(
           bodyText1: TextStyle(

@@ -10,6 +10,7 @@ String? result;
 //Regex to help detect input matching
 var gregMatch = RegExp("[0-9]{6}");
 var julianMatch = RegExp("[0-9, /]+");
+var firstMatch = RegExp("[^0-9/]");
 
 var convertAnswer = dateController.text;
 
@@ -17,9 +18,14 @@ class ConvertAnswer {
   inputType(convertAnswer) {
     if (convertAnswer == null) {
       answer = "Invalid Entry ";
+      print("NULL");
+    }
+    else if (convertAnswer.length < 6 || firstMatch.hasMatch(convertAnswer)) {
+      answer = "Invalid Entry";
+      print("MISSING BRACKETS");
     }
 //Converts Dates from 122001 to 01/01/2022
-    else if (gregMatch.hasMatch(convertAnswer)) {
+    else if (gregMatch.hasMatch(convertAnswer) && convertAnswer.startsWith('1') && convertAnswer.length == 6 ) {
       dateSplit(var inputDate) {
         inputDate = inputDate.toString();
         // Break down JDE date into individual pieces
@@ -67,7 +73,7 @@ class ConvertAnswer {
       answer = "$result = $convertAnswer";
     }
 //Converts Dates from 01/01/2022 to 122001
-    else if (julianMatch.hasMatch(convertAnswer)) {
+    else if (julianMatch.hasMatch(convertAnswer) && convertAnswer.length == 10 && convertAnswer.contains('/')) {
       julianDate(String inputDate) {
         //Breaks apart date into day, month, year
         List<String> convDate = inputDate.split('/');
